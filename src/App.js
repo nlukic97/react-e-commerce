@@ -5,7 +5,7 @@ import Product from './components/Product'
 
 function App() {
 
-  // Original list of products
+  // STATE: products
   const [products, setProducts] = useState([
     {
       id:0,
@@ -23,33 +23,28 @@ function App() {
     }
   ])
 
-// the cart of the user
-let savedCart = localStorage.getItem('cart')
+  // STATE: cart
+  let savedCart = localStorage.getItem('cart')
+  const [cart, setCart] = useState(()=> (savedCart !== null) ? JSON.parse(savedCart) : [])
 
 
-
-  const [cart, setCart] = useState(()=>{
-    if(savedCart !== null){
-      return JSON.parse(savedCart)
-     } else {
-      // make a cart with all the elements from the 'products' state
-       return [{id:1, quantity:0}]
-    } 
-  })
-
-  function addToCart(id, amountToAdd){
+  function addToCart(id, quantity){
     let itemInCart = cart.find(item => item.id === id)
-    
+    let updatedCart;
+
     if(itemInCart !== undefined){
-      setCart(cart.map(item=> (item.id === id) ? {...item, quantity: item.quantity + amountToAdd} : item))
+      updatedCart = cart.map(item=> (item.id === id) ? {...item, quantity: item.quantity + quantity} : item)
     } else {
-      setCart([...cart, {id, quantity: amountToAdd}])
+      updatedCart = [...cart, {id, quantity: quantity}]
     }
+
+    setCart(updatedCart)
   }
 
+
+  // When cart state changes
   useEffect(()=>{
-    // localStorage.setItem('cart',JSON.stringify(cart))
-    console.log(cart);
+    localStorage.setItem('cart',JSON.stringify(cart))
   }, [cart])
 
 
