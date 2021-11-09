@@ -1,12 +1,15 @@
 import './App.css';
-import React, {useState, useEffect} from "react"
-import Product from './components/Product'
+import React, {useState, useEffect} from "react";
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+
+import Products from './components/Products';
+import Cart from './components/Cart';
 
 
 function App() {
 
   // STATE: products
-  const [products, setProducts] = useState([
+  const [products] = useState([
     {
       id:0,
       title:'Nice cat',
@@ -41,6 +44,10 @@ function App() {
     setCart(updatedCart)
   }
 
+  function removefromCart(id, quantity){
+    setCart(cart.map(item=> (item.id === id) ? (item.quantity !== 0) ? {...item, quantity: item.quantity - quantity}:item : item))
+  }
+
 
   // When cart state changes
   useEffect(()=>{
@@ -49,20 +56,30 @@ function App() {
 
 
   return (
-    <div className="App">
-      <h1>Nikola's shop</h1>
+    <Router>
+      <div className="App">
+        <h1>Nikola's shop</h1>
+        <Link to="/">Show</Link>
+        <Link to="/cart">Cart</Link>
 
-      { products.map(product=> {
-        return (
-          <Product 
-            key={product.id} 
-            item={product} 
-            addToCart={addToCart}
-          />
-        )
-      }) }
+        <Switch>
+          {/**** home page ****/}
+          <Route exact path='/'>
+            <Products 
+              products={products} 
+              addToCart={addToCart} 
+              removefromCart={removefromCart}
+              />
+          </Route>
 
-    </div>
+              {/**** cart page ****/}
+          <Route path='/cart'>
+            <Cart cart={cart} />
+          </Route>
+        </Switch>
+
+      </div>
+    </Router>
   );
 }
 
