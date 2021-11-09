@@ -20,7 +20,7 @@ function App() {
     {
       id:1,
       title:'Nice cat',
-      price:12,
+      price:124,
       imgSrc:'https://static.wikia.nocookie.net/fa416344-abcc-48e4-a27b-a3083b61d0f0',
       imgAlt:'cat'
     }
@@ -59,6 +59,7 @@ function App() {
     <Router>
       <div className="App">
         <h1>Nikola's shop</h1>
+
         <Link to="/">Show</Link>
         <Link to="/cart">Cart</Link>
 
@@ -72,9 +73,9 @@ function App() {
               />
           </Route>
 
-              {/**** cart page ****/}
+          {/**** cart page ****/}
           <Route path='/cart'>
-            <Cart cart={cart} />
+            <Cart cart={cart} products={products} />
           </Route>
         </Switch>
 
