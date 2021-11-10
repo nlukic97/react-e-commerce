@@ -25,7 +25,13 @@ nav {
   background-color: rgb(233, 80, 80);
 }
 
-.product {
+.products {
+  display: flex;
+  justify-content: space-around;
+}
+
+.products .product {
+  /* flex-basis:100px; */
   border: 1px solid red;
 }
 

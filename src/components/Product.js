@@ -8,7 +8,6 @@ const Product = ({item, addToCart}) => {
                     <p>{item.price} &#x24;</p>
 
                     <button onClick={()=>{addToCart(item.id, 1)}}>Add</button>
-
                 </div>
             </div>
         </div>
