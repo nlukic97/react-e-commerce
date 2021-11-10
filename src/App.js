@@ -33,30 +33,42 @@ function App() {
   // STATE: cart
   let savedCart = localStorage.getItem('cart')
   const [cart, setCart] = useState(()=> (savedCart !== null) ? JSON.parse(savedCart) : [])
-
-
+  
+  // State: amount of items in cart
+  const [CartItemsAmount, set_cart_items_amount] = useState(()=> update_cart_items_amount())
+  
+  function update_cart_items_amount(){
+    return cart.reduce((acc, obj)=>{
+      acc = acc + obj.quantity 
+      return acc
+    },0)
+  }
+  
   function addToCart(id, quantity){
     let itemInCart = cart.find(item => item.id === id)
     let updatedCart;
-
+    
     if(itemInCart !== undefined){
       updatedCart = cart.map(item=> (item.id === id) ? {...item, quantity: item.quantity + quantity} : item)
     } else {
       updatedCart = [...cart, {id, quantity: quantity}]
     }
-
+    
     setCart(updatedCart)
   }
-
+  
   function removefromCart(id, quantity){
     setCart(cart.map(item=> (item.id === id) ? (item.quantity !== 0) ? {...item, quantity: item.quantity - quantity}:item : item))
   }
-
+  
 
   // When cart state changes
-  useEffect(()=>{
+  useEffect(()=> {
     localStorage.setItem('cart',JSON.stringify(cart))
+    set_cart_items_amount(update_cart_items_amount())
   }, [cart])
+  
+
 
 
   return (
@@ -67,12 +79,12 @@ function App() {
           <Link className='link' to='/'><h1>Nikola's shop</h1></Link>
           <div>
             <Link className='link btn' to="/">Home</Link>
-            <Link className='link btn has-items' to="/cart">
+            <Link className={`link btn ${CartItemsAmount > 0 ? 'has-items' : ''}`} to="/cart">
               {/* Svh icon */}
               <CartIcon/>
 
 
-              <ItemNotification num_of_items={'e'}  />
+              <ItemNotification num_of_items={CartItemsAmount} />
             </Link>
           </div>
           
