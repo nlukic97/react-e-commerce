@@ -63,7 +63,7 @@ nav .nav-content {
 .products .product .img-container {
   width: 100%;
   height: 200px;
-  background-color: rgb(184, 184, 184);;
+  background-color: rgb(184, 184, 184);
   display: flex;
   justify-content: center;
   overflow: hidden;
@@ -125,10 +125,12 @@ nav .nav-content {
   display: block;
   text-align: center;
   position: absolute;
-  bottom:-5px;
-  left:-5px;
-  width: 35px;
-  height: 35px;
+  top:50%;
+  left:60%;
+  transform: translateY(-120%);
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
   display: flex;
   align-items: center;
   justify-content: center;

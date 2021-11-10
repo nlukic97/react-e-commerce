@@ -29,7 +29,7 @@ const Cart = ({cart, products, addToCart, removefromCart}) => {
                         //     <button onClick={()=>{removefromCart(cartItem.id, 1)}}>Remove item</button>
                         // </h1>
                         
-                        <div className='product'>
+                        <div className='product' key={item.id}>
                             <div>
                                 <div className="img-container">
                                     <img src={item.imgSrc} alt={item.imgAlt} />
