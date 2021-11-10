@@ -2,9 +2,12 @@ import './App.css';
 import React, {useState, useEffect} from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
+// Icons
+import { FaShoppingCart as CartIcon } from 'react-icons/fa';
+
+// Components
 import Products from './components/Products';
 import Cart from './components/Cart';
-
 
 function App() {
 
@@ -58,10 +61,15 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <h1>Nikola's shop</h1>
 
-        <Link to="/">Show</Link>
-        <Link to="/cart">Cart</Link>
+        <nav>
+          <Link className='link' to='/'><h1>Nikola's shop</h1></Link>
+          <div>
+            <Link className='link btn' to="/">Home</Link>
+            <Link className='link btn' to="/cart"><CartIcon /></Link>
+          </div>
+          
+        </nav>
 
         <Switch>
           {/**** home page ****/}

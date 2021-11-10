@@ -1,3 +1,25 @@
-.App {
+/* .App {
   text-align: center;
+} */
+
+nav {
+  background-color: rgb(243, 112, 112);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.link {
+  text-decoration: none;
+  background-color: rgb(243, 112, 112);
+  color:#fff;
+  display: inline-block;
+}
+
+.link.btn {
+  padding: 30px;
+}
+
+.link.btn:hover {
+  background-color: rgb(233, 80, 80);
 }
