@@ -1,4 +1,5 @@
-import './App.css';
+import './css/App.css';
+import './css/mediaQuery.css';
 import React, {useState, useEffect} from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
@@ -23,16 +24,16 @@ function App() {
     },
     {
       id:1,
-      title:'Nice cat',
+      title:'Nice car',
       price:124,
-      imgSrc:'https://static.wikia.nocookie.net/fa416344-abcc-48e4-a27b-a3083b61d0f0',
+      imgSrc:'https://www.topgear.com/sites/default/files/images/cars-road-test/2021/11/93e4720f7f50f32e92ee218eccaebbd4/ROW03934.jpg',
       imgAlt:'cat'
     },
     {
       id:2,
-      title:'Nice cat',
+      title:'Nice car 2',
       price:124,
-      imgSrc:'https://static.wikia.nocookie.net/fa416344-abcc-48e4-a27b-a3083b61d0f0',
+      imgSrc:'https://thumbor.forbes.com/thumbor/fit-in/1200x0/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5d35eacaf1176b0008974b54%2F0x0.jpg%3FcropX1%3D790%26cropX2%3D5350%26cropY1%3D784%26cropY2%3D3349',
       imgAlt:'cat'
     },
     {
@@ -123,39 +124,44 @@ function App() {
       <div className="App">
 
         <nav>
-          <Link className='link' to='/'><h1>Nikola's shop</h1></Link>
-          <div>
-            <Link className='link btn' to="/">Home</Link>
-            <Link className={`link btn ${cart_items_amount > 0 ? 'has-items' : ''}`} to="/cart">
-              {/* Svg icon */}
-              <CartIcon/>
+          <div className="nav-content">
+            <Link className='link' to='/'><h1>Nikola's shop</h1></Link>
+
+            <div>
+              <Link className='link btn' to="/">Home</Link>
+              <Link className={`link btn ${cart_items_amount > 0 ? 'has-items' : ''}`} to="/cart">
+                {/* Svg icon */}
+                <CartIcon/>
 
 
-              <ItemNotification num_of_items={cart_items_amount} />
-            </Link>
+                <ItemNotification num_of_items={cart_items_amount} />
+              </Link>
+            </div>
           </div>
           
         </nav>
 
-        <Switch>
-          {/**** home page ****/}
-          <Route exact path='/'>
-            <Products 
-              products={products} 
-              addToCart={addToCart} 
-              />
-          </Route>
+        <div className="content">
+          <Switch>
+            {/**** home page ****/}
+            <Route exact path='/'>
+              <Products 
+                products={products} 
+                addToCart={addToCart} 
+                />
+            </Route>
 
-          {/**** cart page ****/}
-          <Route path='/cart'>
-            <Cart 
-              cart={cart} 
-              products={products} 
-              addToCart={addToCart}
-              removefromCart={removefromCart}
-            />
-          </Route>
-        </Switch>
+            {/**** cart page ****/}
+            <Route path='/cart'>
+              <Cart 
+                cart={cart} 
+                products={products} 
+                addToCart={addToCart}
+                removefromCart={removefromCart}
+              />
+            </Route>
+          </Switch>
+        </div>
 
       </div>
     </Router>
