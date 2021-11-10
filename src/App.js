@@ -8,6 +8,7 @@ import { FaShoppingCart as CartIcon } from 'react-icons/fa';
 // Components
 import Products from './components/Products';
 import Cart from './components/Cart';
+import ItemNotification from './components/ItemNotification';
 
 function App() {
 
@@ -66,7 +67,13 @@ function App() {
           <Link className='link' to='/'><h1>Nikola's shop</h1></Link>
           <div>
             <Link className='link btn' to="/">Home</Link>
-            <Link className='link btn' to="/cart"><CartIcon /></Link>
+            <Link className='link btn has-items' to="/cart">
+              {/* Svh icon */}
+              <CartIcon/>
+
+
+              <ItemNotification num_of_items={'e'}  />
+            </Link>
           </div>
           
         </nav>
@@ -77,13 +84,17 @@ function App() {
             <Products 
               products={products} 
               addToCart={addToCart} 
-              removefromCart={removefromCart}
               />
           </Route>
 
           {/**** cart page ****/}
           <Route path='/cart'>
-            <Cart cart={cart} products={products} />
+            <Cart 
+              cart={cart} 
+              products={products} 
+              addToCart={addToCart}
+              removefromCart={removefromCart}
+            />
           </Route>
         </Switch>
 
