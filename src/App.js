@@ -127,7 +127,7 @@ function App() {
           <div>
             <Link className='link btn' to="/">Home</Link>
             <Link className={`link btn ${cart_items_amount > 0 ? 'has-items' : ''}`} to="/cart">
-              {/* Svh icon */}
+              {/* Svg icon */}
               <CartIcon/>
 
 
