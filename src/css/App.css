@@ -40,14 +40,15 @@ nav .nav-content {
 
 .content {
   padding-top: 81px;
+  width: 80%;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .products {
   display: grid;
   grid-template-columns: repeat(3,1fr);
-  width: 80%;
-  max-width: 900px;
-  margin: 0 auto;
+  
 }
 
 .products .product {
@@ -56,6 +57,7 @@ nav .nav-content {
   border: 1px solid rgb(190, 190, 190);
   border-radius: 8px;
   overflow: hidden;
+  box-shadow: 0px 0px 10px rgb(218, 218, 218);
 }
 
 .products .product .img-container {
