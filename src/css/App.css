@@ -141,17 +141,22 @@ nav .nav-content {
 
 .cart-products .cart-item {
   width: 100%;
-  border: 1px solid red;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding: 20px 0;
+  
+}
+
+.cart-products .cart-item:not(:last-child) {
+  border-bottom: 1px solid rgb(184, 184, 184);
 }
 
 .cart-products .cart-item .img-container {
-  border: 1px solid orange;
-  height: 120px ;
-  width: 120px ;
+  /* border: 1px solid orange; */
+  height: 150px;
+  width: 150px;
   overflow: hidden;
   background-color: rgb(184, 184, 184);
 }
@@ -165,8 +170,7 @@ nav .nav-content {
 
 .cart-products .cart-item button {
   background-color: transparent;
-  outline: transparent;
-  border: none;
+  border: 1px solid transparent;
 }
 
 .cart-products .cart-item button:hover {
