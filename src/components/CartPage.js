@@ -16,7 +16,8 @@ const CartPage = ({cart, products, addToCart, removefromCart}) => {
 
     return (
         <div>
-            <h1 style={{textAlign:'center'}}>Sub total: &#x24;{subTotal}</h1>
+            { (newProducts.length > 0) ? <h3 style={{textAlign:'right',paddingTop:'20px'}}>Total: &#x24;{subTotal}</h3> : <h3 style={{textAlign:'center',paddingTop:'20px'}}>Your cart is currently empty</h3>}
+
             <div className="cart-products">
                 {newProducts.map(item=>{
                     return (                        
