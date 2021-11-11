@@ -8,7 +8,7 @@ import { FaShoppingCart as CartIcon } from 'react-icons/fa';
 
 // Components
 import Products from './components/Products';
-import Cart from './components/Cart';
+import CartPage from './components/CartPage';
 import ItemNotification from './components/ItemNotification';
 
 function App() {
@@ -153,7 +153,7 @@ function App() {
 
             {/**** cart page ****/}
             <Route path='/cart'>
-              <Cart 
+              <CartPage 
                 cart={cart} 
                 products={products} 
                 addToCart={addToCart}

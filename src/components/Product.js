@@ -1,5 +1,6 @@
 // Icons
-import { FaShoppingCart as CartIcon } from 'react-icons/fa';
+// import { FaShoppingCart as CartIcon } from 'react-icons/fa';
+import {BsCart3 as CartIcon} from "react-icons/bs";
 
 const Product = ({item, addToCart}) => {
     return (
@@ -14,7 +15,7 @@ const Product = ({item, addToCart}) => {
                     </div>
                     <div className="right">
                         <h3>&#x24; {item.price}</h3>
-                        <button onClick={()=>{addToCart(item.id, 1)}}><span>+</span><CartIcon /></button>
+                        <button onClick={()=>{addToCart(item.id, 1)}}><CartIcon /></button>
                     </div>
                 </div>
             </div>
