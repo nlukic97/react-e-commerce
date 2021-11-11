@@ -1,0 +1,224 @@
+* {
+  margin:0;
+  padding: 0;
+}
+
+nav {
+  background-color: rgb(243, 112, 112);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+nav .nav-content {
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+}
+
+/* for the difference caused by the sticky navigation */
+
+.link {
+  text-decoration: none;
+  background-color: rgb(243, 112, 112);
+  color:#fff;
+  display: inline-block;
+}
+
+.link.btn {
+  padding: 30px;
+  font-weight: bold;
+}
+
+.link.btn:hover {
+  background-color: rgb(233, 80, 80);
+}
+
+.content {
+  padding-top: 81px;
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  
+}
+
+.products .product {
+  margin: 20px 15px;
+  padding: 0 0 20px 0;
+  border: 1px solid rgb(190, 190, 190);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px rgb(218, 218, 218);
+}
+
+.products .product .img-container {
+  width: 100%;
+  height: 200px;
+  background-color: rgb(184, 184, 184);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.products .product .img-container img {
+  height: 100%;
+}
+
+.products .product .product-content {
+  padding: 10px 20px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.products .product .product-content .left {
+  flex-basis: 70%;
+}
+
+.products .product .product-content .right {
+  flex-basis: 30%;
+  text-align: right;
+}
+
+.products .product .product-content .right h3 {
+  text-align: right;
+  padding-bottom: 10px;
+}
+
+.products .product button {
+  border: 1px solid transparent;
+  background-color: rgb(243, 112, 112);
+  color: #fff;
+  padding: 10px 12px;
+  font-weight: bold;
+  border-radius: 50%;
+}
+
+.products .product button:hover {
+  background-color: #fff;
+  color: rgb(243, 112, 112);
+  border: 1px solid rgb(243, 112, 112);
+  cursor: pointer;
+}
+
+.products .product button:active {
+  transform: scale(0.95);
+}
+
+.item-notification {
+  display: none;
+}
+
+.link.btn.has-items {
+  position: relative;
+}
+
+.link.btn.has-items .item-notification {
+  display: block;
+  text-align: center;
+  position: absolute;
+  top:50%;
+  left:60%;
+  transform: translateY(-120%);
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+  border: 1px solid #fff;
+  border-radius: 50%;
+}
+
+.cart-products .cart-item {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  
+}
+
+.cart-products .cart-item:not(:last-child) {
+  border-bottom: 1px solid rgb(184, 184, 184);
+}
+
+.cart-products .cart-item .img-container-and-text {
+  display: flex;
+  align-items: center;
+}
+
+.cart-products .cart-item .img-container {
+  height: 100px;
+  width: 100px;
+  overflow: hidden;
+  background-color: rgb(184, 184, 184);
+  margin-right: 20px;
+}
+
+.cart-products .cart-item .img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  overflow: hidden;
+}
+
+.cart-products .cart-item .right-container {
+  display: flex;
+  align-items: center;
+}
+
+.cart-products .cart-item .right-container .item-sub-total {
+  min-width: 80px;
+  text-align: right;
+}
+
+.cart-products .cart-item .right-container button {
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+
+.cart-products .cart-item .right-container button:hover {
+  cursor: pointer;
+}
+
+.cart-products .cart-item .right-container .buttons-amount-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.cart-products .cart-item .right-container button {
+  font-size: 30px;
+  height: 30px;
+}
+
+.cart-products .cart-item .right-container button:last-child {
+  margin: 0 0 0 15px;
+}
+
+.cart-products .cart-item .right-container button:active {
+  transform: scale(0.95);
+}
+
+.cart-products .cart-item .right-container .amount-of-items {
+  text-align: center;
+  border: 1px solid rgba(0,0,0,.15);
+  background-color: rgba(0,0,0,.05);
+  width: 40px;
+  border-radius: 4px;
+  height: min-content;
+  margin: 0 30px 0 0;
+}
+
