@@ -96,7 +96,7 @@ function App() {
   
   function removefromCart(id, quantity){
     let updatedCart = cart.map(item=> (item.id === id) ? {...item, quantity: item.quantity - quantity}: item)
-    .filter(item=> item.quantity > 0)
+    .filter(item=> item.quantity > 0) //if amount is 0, remove item object from the cart array
 
     updateCartData(updatedCart, updatedCart.length)
   }
