@@ -132,7 +132,7 @@ function App() {
                 <CartIcon/>
 
 
-                <ItemNotification num_of_items={cartItemsAmount} />
+                <ItemNotification numOfItems={cartItemsAmount} />
               </Link>
             </div>
           </div>

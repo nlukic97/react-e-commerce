@@ -1,7 +1,7 @@
-const ItemNotification = ({num_of_items}) => {
+const ItemNotification = ({numOfItems}) => {
     return (
         <div className="item-notification">
-            {num_of_items}
+            {numOfItems}
         </div>
     )
 }
