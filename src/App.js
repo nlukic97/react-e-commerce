@@ -78,17 +78,7 @@ function App() {
   const [cart, setCart] = useState(()=> (savedCart !== null) ? JSON.parse(savedCart) : [])
   
   // State: amount of items in cart
-  const [cart_items_amount, set_cart_items_amount] = useState(()=> get_cart_items_amount(cart))
-  
-
-  // goes through cart, and returns how many items a user has added
-  function get_cart_items_amount(cart){
-    return cart.reduce((acc, obj)=>{
-      acc = acc + obj.quantity 
-      return acc
-    },0)
-  }
-
+  const [cartItemsAmount, setCartItemsAmount] = useState(()=> cart.length)
   
   function addToCart(id, quantity){
     let itemInCart = cart.find(item => item.id === id)
@@ -100,21 +90,22 @@ function App() {
       updatedCart = [...cart, {id, quantity: quantity}]
     }
     
-    _update_card_data(updatedCart, get_cart_items_amount(updatedCart))
+    updateCartData(updatedCart, updatedCart.length)
   }
 
   
   function removefromCart(id, quantity){
-    let updatedCart = cart.map(item=> (item.id === id) ? (item.quantity !== 0) ? {...item, quantity: item.quantity - quantity}:item : item)
+    let updatedCart = cart.map(item=> (item.id === id) ? {...item, quantity: item.quantity - quantity}: item)
+    .filter(item=> item.quantity > 0)
 
-    _update_card_data(updatedCart, get_cart_items_amount(updatedCart))
+    updateCartData(updatedCart, updatedCart.length)
   }
 
 
   // called when the cart is updated (which updates the cart, and the )
-  function _update_card_data(newCart, newCartItemAmount){
+  function updateCartData(newCart, newCartItemAmount){
     setCart(newCart)
-    set_cart_items_amount(newCartItemAmount)
+    setCartItemsAmount(newCartItemAmount)
   }
   
 
@@ -136,12 +127,12 @@ function App() {
 
             <div>
               <Link className='link btn' to="/">Home</Link>
-              <Link className={`link btn ${cart_items_amount > 0 ? 'has-items' : ''}`} to="/cart">
+              <Link className={`link btn ${cartItemsAmount > 0 ? 'has-items' : ''}`} to="/cart">
                 {/* Svg icon */}
                 <CartIcon/>
 
 
-                <ItemNotification num_of_items={cart_items_amount} />
+                <ItemNotification num_of_items={cartItemsAmount} />
               </Link>
             </div>
           </div>
