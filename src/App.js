@@ -75,7 +75,7 @@ function App() {
 
   // STATE: cart
   let savedCart = localStorage.getItem('cart')
-  const [cart, setCart] = useState(()=> (savedCart !== null) ? JSON.parse(savedCart) : [])
+  const [cart, setCart] = useState(()=> (savedCart !== null) ? JSON.parse(savedCart).filter(item=> item.quantity !== 0) : []) //filtering out any items with a quantity of 0 that may have been saved in local storage on browsers that viewed the previous deployment
   
   // State: amount of items in cart
   const [cartItemsAmount, setCartItemsAmount] = useState(()=> cart.length)
